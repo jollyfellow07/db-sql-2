@@ -1,0 +1,25 @@
+----------------------------------------------------GROUP BY---------------------------------------------
+1:
+select YEAR(enrolment_date) AS DATA_ISCRIZIONE, count(*) as NUMERO_ISCRITTI
+FROM students 
+GROUP BY YEAR(enrolment_date) ORDER BY YEAR(enrolment_date) desc
+*********************************************************************************************************
+2.
+SELECT office_address, count(*) AS numero_professori
+FROM teachers
+GROUP BY office_address
+ORDER BY numero_professori DESC;
+*********************************************************************************************************
+3.
+SELECT exam_id, COUNT(exam_id) AS NUMERO_ESAMI, AVG(vote) AS MEDIA_VOTI
+FROM exam_student
+GROUP BY exam_id
+ORDER BY exam_id;
+
+*********************************************************************************************************
+4.
+SELECT department_id, count(*) AS CORSI_NEL_DIPARTIMENTO
+FROM degrees
+GROUP BY department_id
+ORDER BY CORSI_NEL_DIPARTIMENTO DESC;
+*********************************************************************************************************
