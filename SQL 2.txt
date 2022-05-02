@@ -71,12 +71,10 @@ INNER JOIN departments ON departments.id = degrees.department_id
 WHERE departments.name='Dipartimento di Matematica'
 *********************************************************************************************************
 7.
-SELECT exam_student.exam_id, exam_student.student_id, students.name, students.surname, count(course_id) AS numero_tentativi, MAX(vote) AS voto_massimo
+SELECT exams.course_id, count(exams.course_id) AS Numero_Tentativi, exam_student.student_id, students.name, students.surname, MAX(vote) AS voto_massimo
 FROM exam_student
 INNER JOIN students ON students.id = exam_student.student_id
 INNER JOIN exams ON exams.id = exam_student.exam_id
-group by exam_student.exam_id, exam_student.student_id, students.name, students.surname
-ORDER BY numero_tentativi, voto_massimo desc
-
-
+group by exams.course_id, exam_student.student_id, students.name, students.surname
+order by exam_student.student_id
 
